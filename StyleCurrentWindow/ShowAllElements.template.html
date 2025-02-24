@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="styles.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const jsonTestData = [{"Tag":"div","ID":"1","Name":"Element 1","Order":"1","Classlist":"class1","Style":"style1","Placeholder":"placeholder1","Context":"context1"},{"Tag":"span","ID":"2","Name":"Element 2","Order":"2","Classlist":"class2","Style":"style2","Placeholder":"placeholder2","Context":"context2"}];
+
+    const mainContainer = document.getElementById("main");
+
+    jsonTestData.forEach((data) => {
+      const row = document.createElement("div");
+      row.classList.add("flex-row");
+
+      for (const key in data) {
+        const item = document.createElement("div");
+        item.classList.add("flex-item");
+        item.textContent = data[key];
+        row.appendChild(item);
+      }
+
+      mainContainer.appendChild(row);
+    });
+  });
+function testData() {
+    const jsonData = [{"Tag":"div","ID":"3","Name":"Element 3","Order":"3","Classlist":"class3","Style":"style3","Placeholder":"placeholder3","Context":"context3"},{"Tag":"span","ID":"4","Name":"Element 4","Order":"4","Classlist":"class4","Style":"style4","Placeholder":"placeholder4","Context":"context4"}];
+
+    const mainContainer = document.getElementById("main");
+    jsonData.forEach((data) => {
+        const row = document.createElement("div");
+        row.classList.add("flex-row");
+
+        for (const key in data) {
+            const item = document.createElement("div");
+            item.classList.add("flex-item");
+            item.textContent = data[key];
+            row.appendChild(item);
+        }
+
+        mainContainer.appendChild(row);
+    });
+    jsonData.forEach((row) => {
+        debugger
+        const row = document.createElement("div");
+        row.classList.add("flex-row");
+
+        for (const key in row) {
+            const item = document.createElement("div");
+            item.classList.add("flex-item");
+            item.textContent = row[key];
+            row.appendChild(item);
+        }
+
+        mainContainer.appendChild(row);
+    });
+}
+  function resetData() {
+    const mainContainer = document.getElementById("main");
+    mainContainer.innerHTML = `
+           
+        `;
+  }
+</script>
+<div class="gridautorows dark-mode">
+<div class="flex-row">
+    <button class="target-element" onclick="testData()">Test</button>
+    <button class="target-element" onclick="resetData()" id="reset-button">Reset</button>
+</div>
+
+
+  <div id="main" class="flex-container">
+     
+  </div>
+</div>

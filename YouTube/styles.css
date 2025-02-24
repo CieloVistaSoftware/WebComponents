@@ -1,0 +1,31 @@
+ 
+:root {
+    --background-color: #fff;
+    --text-color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #333;
+        --text-color: #fff;
+    }
+}
+
+#video-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    #video-container {
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+}
+.grid{
+    display: Grid;
+    grid-template-rows: .2fr 1fr;
+}

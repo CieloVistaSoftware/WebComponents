@@ -1,0 +1,40 @@
+{
+  "name": "show-file-path",
+  "displayName": "Show File Path",
+  "description": "A VS Code extension to show the file path of the active editor.",
+  "version": "1.0.0",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "activationEvents": [
+    "onCommand:showFilePath.show"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "showFilePath.show",
+        "title": "Show File Path"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "showFilePath.show",
+          "when": "editorTextFocus",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "typescript": "^4.4.3",
+    "tslint": "^6.1.3"
+  }
+}

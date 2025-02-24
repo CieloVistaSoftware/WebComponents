@@ -1,0 +1,31 @@
+class MyIonicComponent extends HTMLElement {
+  constructor() {
+    super();
+    // Attach a shadow DOM if desired
+    this.attachShadow({ mode: 'open' });
+  }
+
+  connectedCallback() {
+    this.render();
+  }
+
+  render() {
+    this.shadowRoot.innerHTML = `
+      <!-- Optional: link Ionic's CSS if not already included globally -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+      <div class="ion-dark">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>My Ionic Header</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <ion-button expand="full">Click Me! If for no other reason</ion-button>
+        </ion-content>
+      </div>
+    `;
+  }
+}
+
+// Define the custom element
+customElements.define('my-ionic-component', MyIonicComponent);

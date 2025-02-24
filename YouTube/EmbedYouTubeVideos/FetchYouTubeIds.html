@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Embeds</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">YouTube Video Embeds</h1>
+        <div id="video-embeds"></div>
+    </div>
+    <script>
+        async function fetchYouTubeVideoIds(apiKey, query, maxResults = 5) {
+            const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=${encodeURIComponent(query)}&key=${apiKey}`;
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                return data.items.map(item => item.id.videoId);
+            } catch (error) {
+                console.error('Error fetching YouTube video IDs:', error);
+                return [];
+            }
+        }
+
+        function generateEmbedCode(videoId) {
+            return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        }
+
+        // Example usage:
+        const apiKey = 'YOUR_API_KEY'; // Replace with your YouTube Data API key
+        const query = 'Greenland and the Golden Age'; // Replace with your search query
+
+        fetchYouTubeVideoIds(apiKey, query).then(videoIds => {
+            const videoEmbedsContainer = document.getElementById('video-embeds');
+            videoIds.forEach(videoId => {
+                const embedCode = generateEmbedCode(videoId);
+                videoEmbedsContainer.innerHTML += embedCode;
+            });
+        });
+    </script>
+</body>
+</html>

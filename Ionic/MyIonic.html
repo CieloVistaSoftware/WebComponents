@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Ionic Web Component</title>
+  <!-- Ionic Core JavaScript (ES module and nomodule versions for legacy browsers) -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+  <!-- Ionic CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+</head>
+<body>
+  <!-- Use your custom component -->
+  <my-ionic-component></my-ionic-component>
+
+  <!-- Define the custom element -->
+  <script type="module">
+    class MyIonicComponent extends HTMLElement {
+      constructor() {
+        super();
+        // Attach a shadow DOM so styles and markup are encapsulated.
+        this.attachShadow({ mode: 'open' });
+      }
+      
+      connectedCallback() {
+        this.render();
+      }
+      
+      render() {
+        this.shadowRoot.innerHTML = `
+          <!-- Include Ionic CSS inside the shadow DOM for encapsulated styling -->
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+          <div>
+            <ion-header>
+              <ion-toolbar>
+                <ion-title>My Ionic Header</ion-title>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+              <ion-button expand="full">Click Me!</ion-button>
+            </ion-content>
+          </div>
+        `;
+      }
+    }
+    
+    // Define the new element
+    customElements.define('my-ionic-component', MyIonicComponent);
+  </script>
+</body>
+</html>

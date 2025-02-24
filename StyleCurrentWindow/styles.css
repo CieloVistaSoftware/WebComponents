@@ -1,0 +1,238 @@
+/* 
+    Define default (light mode) variables 
+    These will be used throughout your stylesheet.
+*/
+:root {
+    --background-color: #f8f8f8;
+    --text-color: #000;
+    --border-color: #ccc;
+    --header-background-color: #f2f2f2;
+    --header-text-color: #000;
+    --dropdown-background-color: #f9f9f9;
+    --dropdown-text-color: #000;
+    --table-background-color: #fff;
+    --table-row-even-background-color: #f2f2f2;
+    --table-row-odd-background-color: #fff;
+    --cell-content-background-color: #fff;
+    --cell-content-text-color: #000;
+    --dropdown-toggle-color: blue;
+}
+/* Ensure root variables are for dark mode by default */
+:root {
+    --background-color: #121212;
+    --text-color: #fff;
+    --border-color: #333;
+    --header-background-color: #333;
+    --header-text-color: #fff;
+    --dropdown-background-color: #444;
+    --dropdown-text-color: #fff;
+    --table-background-color: #444;
+    --table-row-even-background-color: #555;
+    --table-row-odd-background-color: #666;
+    --cell-content-background-color: #555;
+    --cell-content-text-color: #fff;
+    --dropdown-toggle-color: #00f;
+}
+
+ 
+/* 
+  When dark mode is activated (by adding "dark-mode" to a high-level element like <body>),
+  override the variables with dark mode values.
+*/
+body.dark-mode {
+    --background-color: #121212;
+    --text-color: #fff;
+    --header-background-color: #333;
+    --header-text-color: #fff;
+    --dropdown-background-color: #444;
+    --dropdown-text-color: #fff;
+    --table-background-color: #444;
+    --table-row-even-background-color: #555;
+    --table-row-odd-background-color: #666;
+    --cell-content-background-color: #555;
+    --cell-content-text-color: #fff;
+    --dropdown-toggle-color: #00f;
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Example Element */
+button {
+    width: 5rem;
+    height: 2em;
+    margin-left: 1rem;
+    margin-top: .3rem;
+    margin-bottom: .3rem;
+    background-color: var(--border-color);
+    color : var(--text-color);
+
+    
+}
+
+/* Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    gap: 1rem;
+    margin: 1rem 2rem 2rem 0;
+}
+
+/* Flex Containers */
+.flex {
+    display: flex;
+    gap: 1rem;
+}
+
+.flex-container {
+    display: flex;
+    background-color: var(--table-background-color);
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: var(--table-background-color);
+    color: var(--text-color);
+    margin-bottom: .1rem;
+}
+
+.flex-item {
+    flex: 1 1 auto;
+    margin: 5px;
+    background-color: var(--cell-content-background-color);
+    color: var(--cell-content-text-color);
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-collapse: collapse;
+    background-color: var(--table-background-color);
+    color: var(--text-color);
+}
+
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    text-align: left;
+}
+/* Ensure root variables are for dark mode by default */
+:root {
+    --background-color: #121212;
+    --text-color: #fff;
+    --border-color: #333;
+    --header-background-color: #333;
+    --header-text-color: #fff;
+    --dropdown-background-color: #444;
+    --dropdown-text-color: #fff;
+    --table-background-color: #444;
+    --table-row-even-background-color: #555;
+    --table-row-odd-background-color: #666;
+    --cell-content-background-color: #555;
+    --cell-content-text-color: #fff;
+    --dropdown-toggle-color: #00f;
+}
+
+/* Light mode variables */
+body.light-mode {
+    --background-color: #f8f8f8;
+    --text-color: #000;
+    --border-color: #ccc;
+    --header-background-color: #f2f2f2;
+    --header-text-color: #000;
+    --dropdown-background-color: #f9f9f9;
+    --dropdown-text-color: #000;
+    --table-background-color: #fff;
+    --table-row-even-background-color: #f2f2f2;
+    --table-row-odd-background-color: #fff;
+    --cell-content-background-color: #fff;
+    --cell-content-text-color: #000;
+    --dropdown-toggle-color: blue;
+}
+th {
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+}
+
+tr:nth-child(even) {
+    background-color: var(--table-row-even-background-color);
+}
+
+tr:nth-child(odd) {
+    background-color: var(--table-row-odd-background-color);
+}
+
+.table-container {
+    color: var(--text-color);
+}
+
+/* Dropdown for Tall Cells */
+td {
+    position: relative;
+}
+
+td > .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--dropdown-background-color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    max-height: 10rem;
+    overflow-y: auto;
+}
+
+td > .dropdown-content p {
+    color: var(--dropdown-text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+td:hover > .dropdown-content {
+    display: block;
+}
+
+td > .dropdown-toggle {
+    display: none;
+}
+
+td.tall-cell > .dropdown-toggle {
+    display: block;
+    cursor: pointer;
+    color: var(--dropdown-toggle-color);
+    text-decoration: underline;
+}
+
+td.tall-cell > .cell-content {
+    display: none;
+}
+
+td.tall-cell:hover > .cell-content {
+    display: block;
+}
+.gridautorows{
+    display: grid;
+    grid-auto-rows: auto;
+}
+/* Additional Dropdown Style */
+.dropdown {
+    max-height: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.dropdown.open {
+    max-height: none;
+}

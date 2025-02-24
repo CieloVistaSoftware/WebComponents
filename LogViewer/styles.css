@@ -1,0 +1,107 @@
+:root {
+    --background: #1e1e1e;
+    --border-color: #ccc;
+    --text-color: #f8f8f8;
+    --background-dark: #1e1e1e;
+    --text-color-dark: #f8f8f8;
+    --border-color-dark: #444;
+    --timestamp-color: #0fa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:host {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    border: 1px solid var(--border-color, #ccc);
+    background: var(--background, #1e1e1e);
+    color: var(--text-color, #f8f8f8);
+    font-family: monospace;
+    font-size: 14px;
+    overflow: hidden;
+    outline: 1px solid rgba(255, 255, 255, 0.2); /* Faint border outline */
+    padding-left: 1rem;
+    margin: auto; /* Center the element */
+}
+
+@media (prefers-color-scheme: dark) {
+    :host {
+        background: var(--background-dark, #1e1e1e);
+        color: var(--text-color-dark, #f8f8f8);
+        border-color: var(--border-color-dark, #444);
+    }
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    width: 95vw;
+    margin: 0;
+}
+
+h1,h2,h3 {
+    margin: 1rem 0; /* Add space above and below the h2 element */
+    width: 100%; /* Ensure it takes full width */
+    text-align: center; /* Center the text */
+}
+
+button {
+    height: 2rem;
+    width: 5rem;
+    background-color: (--timestamp-color)
+}
+
+header {
+    height: 2rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0; /* Add space above and below the header */
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.border {
+    flex: 1;
+    overflow: auto;
+    resize: both;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.log-entry {
+    white-space: pre-wrap;
+    margin-bottom: 4px;
+}
+
+.timestamp {
+    color: var(--timestamp-color, #0fa);
+}
+
+.resize-grip {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: se-resize;
+}
